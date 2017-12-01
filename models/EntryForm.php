@@ -21,5 +21,5 @@ class EntryForm extends Model
             [['name', 'email'], 'required'],
             ['email', 'email'],
         ];
-    }
+}
 }
