@@ -3,6 +3,8 @@
 namespace app\controllers;
 
 use app\models\EntryForm;
+use yii\data\Pagination;
+use app\models\Country;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,6 +12,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+
 
 class SiteController extends Controller
 {
@@ -142,5 +145,27 @@ class SiteController extends Controller
             // either the page is initially displayed or there is some validation error
             return $this->render('entry', ['model' => $model]);
         }
+    }
+}
+class CountryController extends Controller
+{
+    public function actionIndex()
+    {
+        $query = Country::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 5,
+            'totalCount' => $query->count(),
+        ]);
+
+        $countries = $query->orderBy('name')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('index', [
+            'countries' => $countries,
+            'pagination' => $pagination,
+        ]);
     }
 }
