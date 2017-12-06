@@ -1,4 +1,5 @@
 <h1>Test</h1>
 <?php
 
-\app\controllers\debug(Yii::$app);
+//\app\controllers\debug(Yii::$app);
+//debug(Yii::$app);

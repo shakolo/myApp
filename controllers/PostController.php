@@ -11,12 +11,18 @@ use Yii;
 
 class PostController extends AppController
 {
-    public function actionTest(){
-        $names = ['Ivanov', 'Petrov', 'Sidorov'];
+
+    public $layout = 'basic';
+    public function actionIndex(){
+//        $names = ['Ivanov', 'Petrov', 'Sidorov'];
 
 //        var_dump(Yii::$app);
 //        $this->debug(Yii::$app);
-        $this->debug($names);
+//        $this->debug($names);
         return $this->render('test');
+    }
+    public function actionShow(){
+//        $this->layout = 'basic';
+        return $this->render('show');
     }
 }
