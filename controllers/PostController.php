@@ -28,6 +28,17 @@ class PostController extends AppController
 
 
         $model = new TestForm();
+        if($model->load(Yii::$app->request->post())) {
+//            debug(Yii::$app->request->post());
+//            debug($model);
+//            die;
+            if ($model->validate()){
+                Yii::$app->session->setFlash('success', 'Данные приняты');
+                return $this->refresh();
+            } else {
+                Yii::$app->session->setFlash('error', 'Ошибка');
+            }
+        }
 
 
         if(Yii::$app->request->isAjax) {
