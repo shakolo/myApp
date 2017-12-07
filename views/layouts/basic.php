@@ -15,7 +15,7 @@ AppAsset::register($this);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <!--    --><?//= Html::csrfMetaTags() ?>
-    <title>Document</title>
+    <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -27,6 +27,11 @@ AppAsset::register($this);
             <li role="presentation" ><?= Html::a('Статьи', ['post/index']) ?></li>
             <li role="presentation" ><?= Html::a('Статья', ['post/show']) ?></li>
         </ul>
+        <?php
+//        debug($this->blocks)
+        if (isset($this->blocks['block1'])):?>
+            <?php echo $this->blocks['block1']; ?>
+        <?php endif; ?>
 
         <?= $content ?>
     </div>
