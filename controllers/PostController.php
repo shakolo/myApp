@@ -27,8 +27,17 @@ class PostController extends AppController
 
     public function actionIndex(){
 
+//        $post = TestForm::findOne(6);
+//        $this->debug($post);
+//        $post->email = 'mail@mail.ru';
+//        $post->save();
+//        $this->debug($post);
+//        $post->delete();
 
+
+        TestForm::deleteAll();
         $model = new TestForm();
+
 
 //        $model->name = "Автор";
 ////        $model->email = 'mail@mail.com';
