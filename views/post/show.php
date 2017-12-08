@@ -6,7 +6,7 @@
 $this->beginBlock('block1');
 ?>
 <h1>Заголовок страницы</h1>
-
+<?php debug($cats) ?>
 <?php $this->endBlock()?>
 
 <h1>Show Action</h1>
