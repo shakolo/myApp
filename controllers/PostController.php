@@ -75,10 +75,13 @@ class PostController extends AppController
 //        $cats = Category::find()->all();
 //            $query = "SELECT * FROM categories WHERE title LIKE '%pp%'";
 //        $cats = Category::findBySql($query)->all();
-            $query = "SELECT * FROM categories WHERE title LIKE :search";
-
-            $cats = Category::findBySql($query, ['search' => '%pp%'])->all();
-
+//            $query = "SELECT * FROM categories WHERE title LIKE :search";
+//
+//            $cats = Category::findBySql($query, ['search' => '%pp%'])->all();
+//            $cats = Category::find()->all(); //ленивая (отложенная) загрузка
+//            $cats = Category::find()->with('products')->all(); //жадная загрузка
+//            $cats = Category::find()->with('products')->where('id=694')->all();
+//            $cats = Category::findOne(694);
 
 //        return $this->render('show');
         return $this->render('show', compact('cats'));
