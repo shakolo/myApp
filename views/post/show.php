@@ -6,6 +6,10 @@
 $this->beginBlock('block1');
 ?>
 <h1>Заголовок страницы</h1>
+
+<?php //foreach ($cats as $cat){
+//    echo $cat->title . '<br>';
+//} ?>
 <?php debug($cats) ?>
 <?php $this->endBlock()?>
 

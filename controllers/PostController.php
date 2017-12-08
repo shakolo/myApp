@@ -62,8 +62,23 @@ class PostController extends AppController
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики']);
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'описание']);
 
+//        $cats = Category::find()->asArray()->where(['parent' => 691])->limit(1)->all();
+//        $cats = Category::find()->asArray()->where(['parent' => 691])->limit(1)->one();
+//        $cats = Category::findAll(['parent' => 691]);
+//        $cats = Category::findOne(['parent' => 691]);
+//        $cats = Category::find()->orderBy(['id' => SORT_ASC ])->all();
+//        $cats = Category::find()->asArray()->where(['<=', 'id',  695])->all();
+//        $cats = Category::find()->asArray()->where(['like' , 'title', 'pp'])->all();
+//        $cats = Category::find()->asArray()->where(['parent' => 691])->all();
+//        $cats = Category::find()->asArray()->where('parent =691')->all();
+//        $cats = Category::find()->asArray()->all();
+//        $cats = Category::find()->all();
+//            $query = "SELECT * FROM categories WHERE title LIKE '%pp%'";
+//        $cats = Category::findBySql($query)->all();
+            $query = "SELECT * FROM categories WHERE title LIKE :search";
 
-        $cats = Category::find()->all();
+            $cats = Category::findBySql($query, ['search' => '%pp%'])->all();
+
 
 //        return $this->render('show');
         return $this->render('show', compact('cats'));
