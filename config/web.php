@@ -50,14 +50,14 @@ $config = [
                     'enablePrettyUrl' => true,
                     'showScriptName' => false,
                     'enableStrictParsing' => false,
-                    'suffix' => '.html',
+//                    'suffix' => '.html',
                     'rules' => [
-                        [
-                            'pattern' =>'',
-                            'route' => 'site/index',
-                            'suffix' => ''
-                        ],
-                        '<action:\w+>' => 'site/<action>',
+//                        [
+//                            'pattern' =>'',
+//                            'route' => 'site/index',
+//                            'suffix' => ''
+//                        ],
+//                        '<action:\w+>' => 'site/<action>',
 //                        '<action:(about|contact|login)>' => 'site/<action>',
 //                        'contact' => 'site/contact',
                     ],
@@ -84,6 +84,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+//        'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20']
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
     ];
