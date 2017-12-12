@@ -1,5 +1,6 @@
 <?php
 //$this->title = "Одна статья"
+use app\components\MyWidget;
 ?>
 
 <?php
@@ -7,6 +8,13 @@ $this->beginBlock('block1');
 ?>
 <h1>Заголовок страницы</h1>
 
+
+<?//= MyWidget::widget();?>
+<?//= MyWidget::widget(['name' => 'Вася']);?>
+<?php MyWidget::begin()?>
+
+<h1>приветик мирочек</h1>
+<?php MyWidget::end()?>
 <?php //foreach ($cats as $cat){
 //    echo $cat->title . '<br>';
 //} ?>
@@ -15,17 +23,19 @@ $this->beginBlock('block1');
 <?php //debug($cats) ?>
 
 <?php
-foreach ($cats as $cat) {
-    echo '<ul>';
-        echo '<li>' . $cat->title . '</li>';
-        $products = $cat->products;
-        foreach ($products as $product) {
-            echo '<ul>';
-            echo '<li>' . $product->title . '</li>';
-            echo '</ul>';
-        }
-    echo '</ul>';
-}
+//foreach ($cats as $cat) {
+//    echo '<ul>';
+//        echo '<li>' . $cat->title . '</li>';
+//        $products = $cat->products;
+//        foreach ($products as $product) {
+//            echo '<ul>';
+//            echo '<li>' . $product->title . '</li>';
+//            echo '</ul>';
+//        }
+//    echo '</ul>';
+//}
+
+
 ?>
 
 
