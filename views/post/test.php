@@ -1,5 +1,6 @@
 <?php
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 ?>
 <h1>Test Action</h1>
@@ -34,6 +35,12 @@ use yii\helpers\Html;
 <?= $form->field($model, 'name') ?>
 <?= $form->field($model, 'email')->input('email') ?>
 <?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
-<?= $form->field($model, 'text')->textarea(['rows' => 5]) ?>
+<?//= $form->field($model, 'text')->textarea(['rows' => 5])
+echo $form->field($model, 'text')->widget(CKEditor::className(),[
+'editorOptions' => [
+'preset' => 'full', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+'inline' => false, //по умолчанию false
+],
+]);?>
 <?= Html::submitButton('Отправить', ['class' => 'btn btn-success'])?>
 <?php $form = ActiveForm::end(); ?>
